@@ -1,9 +1,7 @@
 function [denoised, raw] = glhosvd_InVivo(data, bmask, kglobal, klocal, patchsize, step, sw)
 % Patch size variation
-addpath('/data/vig1/ykim/Brain_C13/Codes/gl-hosvd-master/tensor_fit/');
-addpath('/data/vig1/ykim/Brain_C13/Codes/gl-hosvd-master/RiceOptVST/');
-addpath('/data/vig1/ykim/Brain_C13/Codes/gl-hosvd-master/GL-HOSVD/');
-addpath('/data/vig1/ykim/Brain_C13/Codes/gl-hosvd-master/HOSVD/');
+addpath('./GL-HOSVD/');
+addpath('./GL-HOSVD/gl-hosvd/');
 
 % data: [x, y, z, t, Met] Met 1: pyr; Met 2: lac
 
