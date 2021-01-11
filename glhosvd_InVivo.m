@@ -1,7 +1,7 @@
 function [denoised, raw] = glhosvd_InVivo(data, bmask, kglobal, klocal, patchsize, step, sw)
 % Patch size variation
-addpath('./GL-HOSVD/');
-addpath('./GL-HOSVD/gl-hosvd/');
+addpath('./GL_HOSVD/');
+addpath('./GL_HOSVD/gl-hosvd/');
 
 % data: [x, y, z, t, Met] Met 1: pyr; Met 2: lac
 
