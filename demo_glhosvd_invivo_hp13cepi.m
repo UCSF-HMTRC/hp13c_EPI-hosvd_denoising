@@ -98,8 +98,8 @@ for k=1:2
     SNRmask_kpl = (tmp.pyr.aucsnr > snr_threshold).* (tmp.lac.aucsnr > snr_threshold);
     SNRmask_kpb = (tmp.pyr.aucsnr > snr_threshold).* (tmp.bic.aucsnr > snr_threshold);
     % error criteria
-    Errmask_kpl = (tmp.kpl_fit_err/2/1.96 < err_threshold);
-    Errmask_kpb =   (tmp.kpb_fit_err/2/1.96 < err_threshold);
+    Errmask_kpl = (tmp.kpl_fit_err/2/1.96 < err_threshold * tmp.kpl_fit);
+    Errmask_kpb =   (tmp.kpb_fit_err/2/1.96 < err_threshold * tmp.kpb_fit);
     maxlimit = 0.1; minlimit = 0.0005;
     kplmask = (tmp.kpl_fit > minlimit & tmp.kpl_fit < maxlimit) .*Errmask_kpl;
     kpbmask =(tmp.kpb_fit > minlimit & tmp.kpb_fit < maxlimit) .*Errmask_kpb;
