@@ -4,7 +4,7 @@ clearvars
 
 addpath(genpath('./data'));
 addpath(genpath('./Imagescn'));
-addpath(genpath('.callbackfun'));
+addpath(genpath('./callbackfun'));
 
 %% initialize
 give_positions
