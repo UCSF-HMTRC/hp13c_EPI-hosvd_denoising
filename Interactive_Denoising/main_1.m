@@ -8,7 +8,7 @@ addpath(genpath('./callbackfun'));
 
 %% initialize
 give_positions
-load('./data/invivo_hp13c_EPI.mat');
+load('../data/invivo_hp13c_EPI.mat');
 global met_dyn
 met_dyn = hp13c;
 
