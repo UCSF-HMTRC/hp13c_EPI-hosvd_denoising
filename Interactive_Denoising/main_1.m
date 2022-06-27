@@ -5,7 +5,7 @@ clearvars
 addpath(genpath('./data'));
 addpath(genpath('./Imagescn'));
 addpath(genpath('./callbackfun'));
-
+addpath(genpath('../GL_HOSVD'));
 %% initialize
 give_positions
 load('../data/invivo_hp13c_EPI.mat');
