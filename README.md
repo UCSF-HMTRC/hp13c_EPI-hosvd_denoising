@@ -26,4 +26,4 @@ Description for "Interactive Denoising" GUI
 -  The legend next to the signal dynamics plot show the x and y coordinates of the voxels. 
 
 <Data file>
-- The phased data should be stored in this order: [y x z met timefrmae]
+- The phased data should be stored in this order: [y x z met timeframe]
