@@ -1,29 +1,13 @@
 # hp13c_EPI-hosvd_denoising
 
-Description for "Interactive Denoising" GUI
+This Github repository contains matlab codes for denoising hyperpolarized 13C MR images of the human brain using patch-based higher-order singular value decomposition and sample data from a healthy brain volunteer and simulations. The description of the method and results can be found in the paper published in Magnetic Resonance in Medicine (doi: 10.1002/mrm.28887.)
 
-<Data>
-- Type in “metabolite #” (as in the order of phased_data matrix; typically 1: pyruvate, 2: lactate, and 3: bicarbonate)
-- Choose a slice to display (Display slice #)
-- Scale factor: the window level is scaled by a factor determined by “Scale factor.” This scaling factor is applied to post-denoising images as well.
-- Click “Display Data” to display raw data.
-- Click “Calculate noise level” to define signal region. When a new figure showing the AUC image of the displayed pre-denoised data, use a mouse to draw a circle that encompasses the HP signal range. The remaining part will be considered for estimating noise level.
+- In the 'data' folder, in vivo and simulated data files can be found (invivo_hp13c_EPI.mat / simulation_PyrLacDynamics.mat).
+- The 'GL-HOSVD' folder contains matlab function codes for the patch-based denoising and kinetic rate fitting. 
+- The 'Interactive_Denoising' folder contains the 'main_1.m' script which can be used to see the effects of using different densoing parameters on the resulting images interactively. More descriptions can be found in the 'README.md'.
 
-<Denoising parameters>
-- Click “Denoise Data” to denoise the data using the denoising parameters displayed. 
-- If you change the parameters, the denoised images will be updated interactively.
+- <demo_glhosvd_invivo_hp13cepi.m>
+It demonstrates an example for denoising in vivo hyperpolarized 13C MR data of the human brain and analyzing kPL(apparent pyruvate-to-lactate conversion rate) from both raw and denoised images.
 
-<Noise estimation>
-- The noise level (the standard deviation of the intensities from noisy voxels) of the raw data is calculated based on the user-defined background region.
-- The noise level of the denoised data is calculated, and also updated if the denoising parameters are changed.
-- The noise reduction is calculated by dividing the noise level of pre-DN data by that of post-DN data.
-
-<Signal traces>
-- The AUC image of the denoised images (top right) is shown.
-- Use a data tip (cursor) to find x and y coordinates of the voxel that is of interest to see signal dynamics.
-- Type in the x and y coordinates in the fields.
-- Click “Display traces” of the selected voxel and a neighboring voxel.
--  The legend next to the signal dynamics plot show the x and y coordinates of the voxels. 
-
-<Data file>
-- The phased data should be stored in this order: [y x z met timefrmae]
+- <demo_simulation_glhosvd.m>
+It demonstrates an example for denoising simulated noise-added metabolic images of the brain (pyruvate and lactate) and analyzing kPL from both noise-added and denoised images.
