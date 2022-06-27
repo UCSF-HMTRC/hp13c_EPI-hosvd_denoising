@@ -1,7 +1,5 @@
 clearvars; clc; close all
 addpath(genpath('./GL_HOSVD'));
-%addpath(genpath('./TRI'));
-%addpath(genpath('./kinetic_fitting'));
 addpath(genpath('./Imagescn'));
 addpath(genpath('./data'));
 
