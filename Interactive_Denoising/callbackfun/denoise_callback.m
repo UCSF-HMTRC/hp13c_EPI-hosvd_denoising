@@ -11,8 +11,7 @@ function denoise_callback(h_obj, event)
     global ndata
     global im
     
-    addpath('/data/vig1/ykim/Brain_C13/DenoiseEPI_master/GL-HOSVD/');
-    addpath('/data/vig1/ykim/Brain_C13/Codes/gl-hosvd-master/HOSVD/');
+%     addpath(genpath('../../../GL_HOSVD/'));
     
     k_global = str2double(get(kglobal,'String')); 
     k_local = str2double(get(klocal,'String')); 
