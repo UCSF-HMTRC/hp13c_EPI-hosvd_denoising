@@ -1,7 +1,6 @@
 function [denoised, raw] = glhosvd_InVivo(data, bmask, kglobal, klocal, patchsize, step, sw)
 % Patch size variation
-addpath('./GL_HOSVD/');
-addpath('./GL_HOSVD/gl-hosvd/');
+addpath('./gl-hosvd/');
 
 % data: [x, y, z, t, Met] Met 1: pyr; Met 2: lac
 
@@ -24,7 +23,7 @@ noise_mask(2:Ny-1,4:Nx-3,:) = 0;
 %% (1) Pyruvate
 % ---- noise estimation ---- %
 im = data(:,:,:,:,1);
-pyr_noise = im(:,:,:,Nt) .* noise_mask; % last scan
+pyr_noise = im(:,:,:,Nt) .* noise_mask; % use the last timeframe scans (make sure that no HP signal is left)
 tmp = pyr_noise(pyr_noise~=0);
 raw.pyr.noise = [mean(tmp); std(tmp)];
 im = im - mean(tmp);
@@ -46,7 +45,7 @@ raw.pyr.data = im;
 % ---- noise estimation ---- %
 clear im
 im = data(:,:,:,:,2);
-lac_noise = im(:,:,:,1) .* noise_mask; % first scan
+lac_noise = im(:,:,:,1) .* noise_mask; % use the first timeframe scans (make sure that no HP signal appears in the first scans)
 tmp = lac_noise(lac_noise~=0);
 raw.lac.noise = [mean(tmp); std(tmp)];
 im = im - mean(tmp);
@@ -67,7 +66,8 @@ raw.lac.data = im;
 % ---- noise estimation ---- %
 clear im
 im = data(:,:,:,:,3);
-bic_noise = im(:,:,[1:3 7:8],1) .* noise_mask(:,:,[1:3 7:8]);
+bic_noise = im(:,:,[1:3 7:8],1) .* noise_mask(:,:,[1:3 7:8]); % use the first timeframe scans (make sure that no HP signal appears in the first scans),...
+% the 4th slice images are excluded because of the urea phantom signal appearing in this slice.
 tmp = bic_noise(bic_noise~=0);
 raw.bic.noise = [mean(tmp); std(tmp)];
 im = im - mean(tmp);
